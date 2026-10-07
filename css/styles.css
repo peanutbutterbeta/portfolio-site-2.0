@@ -590,6 +590,27 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
   .cs-grid-3 > :last-child { grid-column: 1 / -1; aspect-ratio: 2 / 1 !important; }
 }
 
+/* Cream sections (homepage below the hero) */
+.on-cream {
+  --paper-dim: rgba(26, 26, 26, 0.6);
+  background: var(--paper);
+  color: var(--ink);
+}
+.on-cream .link:hover { border-color: var(--ink); }
+.on-cream .folder { box-shadow: 0 -4px 24px rgba(26, 26, 26, 0.14); }
+.on-cream .folder-tab:focus-visible { outline-color: var(--ink); }
+.on-cream .index-card { background-color: #FFFFFF; box-shadow: 0 12px 28px rgba(26, 26, 26, 0.12); }
+.on-cream .sticky-note { box-shadow: 0 10px 22px rgba(26, 26, 26, 0.16); }
+.on-cream .photo-frame .placeholder { box-shadow: 0 16px 34px rgba(26, 26, 26, 0.18); }
+.on-cream .tape { background: rgba(255, 228, 94, 0.8); }
+.site-footer.on-cream { border-top-color: rgba(26, 26, 26, 0.12); }
+
+body.nav-light .site-nav { background: rgba(251, 248, 242, 0.9); }
+body.nav-light .logo { color: var(--ink); }
+body.nav-light .site-nav nav a { color: rgba(26, 26, 26, 0.6); }
+body.nav-light .site-nav nav a:hover, body.nav-light .site-nav nav a[aria-current="page"] { color: var(--ink); }
+.site-nav, .site-nav .logo, .site-nav nav a { transition: background-color 0.3s, color 0.3s; }
+
 /* Responsive */
 @media (max-width: 960px) {
   .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

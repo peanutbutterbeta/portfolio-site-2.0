@@ -31,6 +31,7 @@
 
   // ---------- Home ----------
   function initHome() {
+    initNavTheme();
     initStack();
     initEnvelope();
     initContactForm();
@@ -109,6 +110,16 @@
     window.addEventListener("scroll", requestRender, { passive: true });
     window.addEventListener("resize", requestRender);
     render();
+  }
+
+  // Switch the nav to cream once the dark hero scrolls out of view
+  function initNavTheme() {
+    const hero = document.querySelector(".hero");
+    if (!hero || !("IntersectionObserver" in window)) return;
+    const navH = document.querySelector(".site-nav")?.offsetHeight || 64;
+    new IntersectionObserver(([e]) => {
+      document.body.classList.toggle("nav-light", !e.isIntersecting);
+    }, { rootMargin: `-${navH}px 0px 0px 0px` }).observe(hero);
   }
 
   function buildFolders(stack) {
