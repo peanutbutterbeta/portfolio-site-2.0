@@ -276,6 +276,7 @@
       </div>
 
       <div class="on-cream case-body">
+      <div class="cs-sheet">
 
       <section class="cs-overview wrap">
         <div class="cs-text reveal">
@@ -292,6 +293,7 @@
           </dl>
         </aside>
       </section>
+      </div>
 
       <div class="on-white">
       ${highlights}

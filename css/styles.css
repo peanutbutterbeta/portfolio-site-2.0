@@ -624,7 +624,11 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 
 .cs-dark { padding-bottom: clamp(56px, 9vh, 104px); }
 .cs-dark .cs-cover { margin-bottom: 0; }
-.case-body { padding-top: clamp(72px, 12vh, 140px); }
+.case-body { background: #FFFFFF; }
+
+/* Layered paper: dark sheet over cream, cream sheet over white */
+.cs-dark { position: relative; z-index: 2; background: var(--desk); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.2); }
+.cs-sheet { position: relative; z-index: 1; padding-top: clamp(72px, 12vh, 140px); background: var(--paper); box-shadow: 0 6px 18px rgba(26, 26, 26, 0.10), 0 1px 3px rgba(26, 26, 26, 0.08); }
 .on-cream .cs-text p, .on-cream .cs-section-text p { color: rgba(26, 26, 26, 0.78); }
 .on-cream .cs-photo, .on-cream .cs-video { background: #ECE8DF; }
 .on-white { background: #FFFFFF; padding-top: clamp(72px, 12vh, 140px); }
