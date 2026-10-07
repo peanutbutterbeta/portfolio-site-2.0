@@ -85,6 +85,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 
 /* Shared paper bits */
 .sticky-note {
+  aspect-ratio: 1 / 1;
   background: var(--yellow);
   color: var(--ink);
   padding: 16px 18px;
@@ -298,7 +299,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 .about-preview h2 { font-size: clamp(32px, 4.5vw, 56px); letter-spacing: -0.02em; margin: 10px 0 20px; }
 .about-preview p.lead { color: var(--paper-dim); margin: 0 0 36px; max-width: 46ch; }
 .process { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 36px; }
-.process .sticky-note { min-height: 140px; font-size: 18px; }
+.process .sticky-note { font-size: 18px; }
 .process .sticky-note small { font-family: var(--font-body); font-size: 13px; line-height: 1.4; }
 .process .sticky-note:nth-child(1) { background: var(--coral); --r: -2deg; }
 .process .sticky-note:nth-child(2) { background: var(--yellow); --r: 1.5deg; }
@@ -610,8 +611,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
   .folder-info .desc { display: none; }
   .services-grid { grid-template-columns: 1fr; }
   .index-card { min-height: 220px; }
-  .process { grid-template-columns: 1fr; }
-  .process .sticky-note { min-height: 0; }
+  .process { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .process .sticky-note { font-size: 16px; padding: 14px; }
+  .process .sticky-note small { font-size: 12px; }
   .contact-form { grid-template-columns: 1fr; }
   .filter-tabs { margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter); }
   .filter-tab { font-size: 14px; padding: 10px 14px 9px; }
