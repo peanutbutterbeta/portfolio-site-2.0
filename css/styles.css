@@ -605,6 +605,23 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 .on-cream .tape { background: rgba(255, 228, 94, 0.8); }
 .site-footer.on-cream { border-top-color: rgba(26, 26, 26, 0.12); }
 
+.work-body { padding-top: 40px; }
+.on-cream .filter-tab { background: rgba(26, 26, 26, 0.06); color: var(--ink); }
+.on-cream .filter-tab:hover { background: rgba(26, 26, 26, 0.11); }
+.on-cream .filter-tab[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.on-cream .filter-rule { background: var(--ink); }
+.on-cream .project-card { background: #FFFFFF; border-color: rgba(26, 26, 26, 0.1); }
+.on-cream .project-card:hover { border-color: var(--ink); }
+.on-cream .project-card .placeholder { background: #ECE8DF; }
+
+.about-dark { padding-bottom: 64px; }
+
+.cs-dark { padding-bottom: clamp(56px, 9vh, 104px); }
+.cs-dark .cs-cover { margin-bottom: 0; }
+.case-body { padding-top: clamp(72px, 12vh, 140px); }
+.on-cream .cs-text p, .on-cream .cs-section-text p { color: rgba(26, 26, 26, 0.78); }
+.on-cream .cs-photo, .on-cream .cs-video { background: #ECE8DF; }
+
 body.nav-light .site-nav { background: rgba(251, 248, 242, 0.9); }
 body.nav-light .logo { color: var(--ink); }
 body.nav-light .site-nav nav a { color: rgba(26, 26, 26, 0.6); }

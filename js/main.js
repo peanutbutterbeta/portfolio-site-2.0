@@ -12,6 +12,7 @@
   if (page === "work") initWork();
   if (page === "about") initAbout();
   if (page === "case") initCase();
+  if (page !== "case") initNavTheme();
 
   // Fade/slide elements in as they enter the viewport (runs after pages render their content)
   const revealEls = document.querySelectorAll(".reveal");
@@ -31,7 +32,6 @@
 
   // ---------- Home ----------
   function initHome() {
-    initNavTheme();
     initStack();
     initEnvelope();
     initContactForm();
@@ -112,9 +112,9 @@
     render();
   }
 
-  // Switch the nav to cream once the dark hero scrolls out of view
+  // Switch the nav to cream once the dark top section scrolls out of view
   function initNavTheme() {
-    const hero = document.querySelector(".hero");
+    const hero = document.querySelector("[data-hero]");
     if (!hero || !("IntersectionObserver" in window)) return;
     const navH = document.querySelector(".site-nav")?.offsetHeight || 64;
     new IntersectionObserver(([e]) => {
@@ -264,6 +264,7 @@
       : "";
 
     main.innerHTML = `
+      <div class="cs-dark" data-hero>
       <section class="cs-hero wrap">
         <a class="cs-back" href="work.html">← All work</a>
         <p class="eyebrow">${esc(p.categories.join(" · "))}</p>
@@ -272,6 +273,9 @@
       </section>
 
       <div class="cs-cover wrap reveal">${img({ src: p.cover, alt: `${p.title} cover image` }, "cs-photo cs-cover-img")}</div>
+      </div>
+
+      <div class="on-cream case-body">
 
       <section class="cs-overview wrap">
         <div class="cs-text reveal">
@@ -300,8 +304,10 @@
             <span class="cs-next-title">${esc(next.title)} →</span>
           </span>
         </a>
-      </section>`;
+      </section>
+      </div>`;
 
+    initNavTheme();
     initReadProgress();
   }
 
