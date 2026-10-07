@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About · Your Name</title>
+  <meta name="description" content="About Your Name, graphic designer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="about">
+  <header class="site-nav">
+    <a class="logo" href="index.html">Your Name</a>
+    <nav aria-label="Main">
+      <a href="work.html">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="about-hero wrap">
+      <p class="eyebrow">About</p>
+      <h1>Hi, I'm Your Name</h1>
+      <p class="board-hint">Drag the pieces around <button type="button" data-board-reset>Reset layout</button></p>
+    </div>
+
+    <div class="board" data-board>
+      <div class="board-photo">
+        <div class="placeholder">
+          <span>Your photo<br>images/me.jpg</span>
+          <img src="images/me.jpg" alt="Portrait of Your Name" onerror="this.remove()">
+        </div>
+      </div>
+      <!-- Graphics: drop files named about-1.jpg … about-7.jpg into /images -->
+      <div class="drag-item" data-drag="1" tabindex="0" aria-label="Graphic 1, use arrow keys to move" style="--w:15; --ar:3/4; --x:6; --y:8">
+        <div class="placeholder"><span>about-1.jpg</span><img src="images/about-1.jpg" alt="" draggable="false" onerror="this.remove()"></div>
+      </div>
+      <div class="drag-item" data-drag="2" tabindex="0" aria-label="Graphic 2, use arrow keys to move" style="--w:22; --ar:16/10; --x:70; --y:6">
+        <div class="placeholder"><span>about-2.jpg</span><img src="images/about-2.jpg" alt="" draggable="false" onerror="this.remove()"></div>
+      </div>
+      <div class="drag-item" data-drag="3" tabindex="0" aria-label="Graphic 3, use arrow keys to move" style="--w:12; --ar:1/1; --x:12; --y:64">
+        <div class="placeholder"><span>about-3.jpg</span><img src="images/about-3.jpg" alt="" draggable="false" onerror="this.remove()"></div>
+      </div>
+      <div class="drag-item" data-drag="4" tabindex="0" aria-label="Graphic 4, use arrow keys to move" style="--w:17; --ar:4/5; --x:76; --y:46">
+        <div class="placeholder"><span>about-4.jpg</span><img src="images/about-4.jpg" alt="" draggable="false" onerror="this.remove()"></div>
+      </div>
+      <div class="drag-item" data-drag="5" tabindex="0" aria-label="Graphic 5, use arrow keys to move" style="--w:22; --ar:3/2; --x:30; --y:70">
+        <div class="placeholder"><span>about-5.jpg</span><img src="images/about-5.jpg" alt="" draggable="false" onerror="this.remove()"></div>
+      </div>
+      <div class="drag-item" data-drag="6" tabindex="0" aria-label="Graphic 6, use arrow keys to move" style="--w:13; --ar:2/3; --x:58; --y:58">
+        <div class="placeholder"><span>about-6.jpg</span><img src="images/about-6.jpg" alt="" draggable="false" onerror="this.remove()"></div>
+      </div>
+      <div class="drag-item" data-drag="7" tabindex="0" aria-label="Graphic 7, use arrow keys to move" style="--w:16; --ar:5/4; --x:27; --y:14">
+        <div class="placeholder"><span>about-7.jpg</span><img src="images/about-7.jpg" alt="" draggable="false" onerror="this.remove()"></div>
+      </div>
+    </div>
+
+    <section class="bio">
+      <h2>A little about me</h2>
+      <p>I'm a graphic designer focused on brand identities, design systems and iconography. I've worked with FinTech startups, event organizers and independent creators.</p>
+      <p>Outside of client work, I collect stationery, make zines and fill too many notebooks.</p>
+      <a class="link" href="index.html#contact">Get in touch →</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Your Name</span>
+    <span>Made with sticky notes and index cards</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
