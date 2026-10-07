@@ -12,16 +12,16 @@ window.CATEGORIES = [
 ];
 
 window.PROJECTS = [
-  { title: "Bloom coffee", categories: ["Branding & Design Systems"], image: "", link: "#" },
-  { title: "Summit 2025", categories: ["Event Branding"], image: "", link: "#" },
-  { title: "Ledger icon set", categories: ["Iconography", "FinTech"], image: "", link: "#" },
-  { title: "Pocketbank app", categories: ["FinTech", "Web Design"], image: "", link: "#" },
-  { title: "Creator kit for @jules", categories: ["Influencers", "Branding & Design Systems"], image: "", link: "#" },
-  { title: "Mapmaker site", categories: ["Web Design"], image: "", link: "#" },
-  { title: "Northwind design system", categories: ["Branding & Design Systems"], image: "", link: "#" },
-  { title: "Night market fest", categories: ["Event Branding"], image: "", link: "#" },
-  { title: "Weather glyphs", categories: ["Iconography"], image: "", link: "#" },
-  { title: "Coinwise onboarding", categories: ["FinTech"], image: "", link: "#" },
-  { title: "Stream merch drop", categories: ["Influencers"], image: "", link: "#" },
-  { title: "Studio portfolio site", categories: ["Web Design"], image: "", link: "#" }
+  { title: "Bloom coffee", categories: ["Branding & Design Systems"], image: "", link: "case-study.html" },
+  { title: "Summit 2025", categories: ["Event Branding"], image: "", link: "case-study.html" },
+  { title: "Ledger icon set", categories: ["Iconography", "FinTech"], image: "", link: "case-study.html" },
+  { title: "Pocketbank app", categories: ["FinTech", "Web Design"], image: "", link: "case-study.html" },
+  { title: "Creator kit for @jules", categories: ["Influencers", "Branding & Design Systems"], image: "", link: "case-study.html" },
+  { title: "Mapmaker site", categories: ["Web Design"], image: "", link: "case-study.html" },
+  { title: "Northwind design system", categories: ["Branding & Design Systems"], image: "", link: "case-study.html" },
+  { title: "Night market fest", categories: ["Event Branding"], image: "", link: "case-study.html" },
+  { title: "Weather glyphs", categories: ["Iconography"], image: "", link: "case-study.html" },
+  { title: "Coinwise onboarding", categories: ["FinTech"], image: "", link: "case-study.html" },
+  { title: "Stream merch drop", categories: ["Influencers"], image: "", link: "case-study.html" },
+  { title: "Studio portfolio site", categories: ["Web Design"], image: "", link: "case-study.html" }
 ];

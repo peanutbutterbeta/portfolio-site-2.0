@@ -22,6 +22,7 @@
   if (page === "home") initHome();
   if (page === "work") initWork();
   if (page === "about") initAbout();
+  if (page === "case") initReadProgress();
 
   // ---------- Home ----------
   function initHome() {
@@ -187,6 +188,22 @@
         </a>`).join("");
     }
     draw();
+  }
+
+  // ---------- Case study ----------
+  function initReadProgress() {
+    const bar = document.querySelector(".read-progress");
+    if (!bar) return;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.setProperty("--p", max > 0 ? clamp(window.scrollY / max, 0, 1).toFixed(4) : 0);
+    };
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
   }
 
   // ---------- About ----------
