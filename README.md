@@ -11,12 +11,12 @@ Drop files into `images/` with these exact names and they appear automatically:
 | `images/me.jpg` | Your photo (homepage and About page) |
 | `images/about-1.jpg` … `images/about-7.jpg` | The 7 draggable graphics on the About page |
 
-Work page thumbnails: put them in `images/work/` and set `image: "images/work/your-file.jpg"` for that project in `js/projects.js`.
+Project images live in `images/work/<project-folder>/`. Paths for each project are in `js/projects.js`.
 
 ## Editing content
 
-- Projects and categories: `js/projects.js`
-- Featured folders, services, process, contact: `index.html`
+- Projects, case studies, categories and the 4 homepage folders: `js/projects.js` (set `featured: true`; `draft: true` hides a project)
+- Services, process, contact: `index.html`
 - Bio: `about.html`
 - Colors and fonts: top of `css/styles.css`
-- Contact email: search for `hello@yourname.com` in `index.html` and `js/main.js`
+- Contact email: search for `mirandajacobucci@gmail.com` in `index.html` and `js/main.js`

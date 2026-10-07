@@ -2,7 +2,18 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
-  // Fade/slide elements in as they enter the viewport
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const FOLDER_COLORS = ["var(--coral)", "var(--blue)", "var(--yellow)", "var(--pink)"];
+  const liveProjects = () => (window.PROJECTS || []).filter((p) => !p.draft);
+  const caseUrl = (p) => `case-study.html?p=${encodeURIComponent(p.slug)}`;
+
+  const page = document.body.dataset.page;
+  if (page === "home") initHome();
+  if (page === "work") initWork();
+  if (page === "about") initAbout();
+  if (page === "case") initCase();
+
+  // Fade/slide elements in as they enter the viewport (runs after pages render their content)
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && !reduceMotion) {
     const io = new IntersectionObserver((entries) => {
@@ -12,17 +23,11 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
     revealEls.forEach((el) => io.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add("in"));
   }
-
-  const page = document.body.dataset.page;
-  if (page === "home") initHome();
-  if (page === "work") initWork();
-  if (page === "about") initAbout();
-  if (page === "case") initReadProgress();
 
   // ---------- Home ----------
   function initHome() {
@@ -35,6 +40,7 @@
     const section = document.querySelector(".featured");
     const stack = document.querySelector("[data-stack]");
     if (!section || !stack) return;
+    buildFolders(stack);
     const folders = [...stack.querySelectorAll(".folder")];
     const n = folders.length;
     const STACKED_AT = 0.85; // portion of the scroll used for stacking; the rest is a hold
@@ -105,6 +111,23 @@
     render();
   }
 
+  function buildFolders(stack) {
+    const list = liveProjects().filter((p) => p.featured).slice(0, 4);
+    stack.innerHTML = list.map((p, i) => `
+      <article class="folder" style="--c: ${FOLDER_COLORS[i % 4]}; --i: ${i}">
+        <button class="folder-tab" type="button" aria-label="Bring ${esc(p.title)} to the front">${esc(p.title)}</button>
+        <div class="folder-body">
+          <div class="cover placeholder"><span>Cover image</span><img src="${esc(p.featuredImage || p.thumbnail || p.cover)}" alt="${esc(p.title)} project cover" onerror="this.remove()"></div>
+          <div class="folder-info">
+            <p class="meta">${esc(p.role)}</p>
+            <h3>${esc(p.title)}</h3>
+            <p class="desc">${esc(p.summary)}</p>
+            <a class="case-link" href="${caseUrl(p)}">View case study →</a>
+          </div>
+        </div>
+      </article>`).join("");
+  }
+
   function initEnvelope() {
     const env = document.querySelector("[data-envelope]");
     if (!env) return;
@@ -142,7 +165,7 @@
       // Opens the visitor's email app with the message filled in
       const subject = encodeURIComponent(`Project inquiry from ${name}`);
       const body = encodeURIComponent(`${message}\n\n${name}\n${email}`);
-      window.location.href = `mailto:hello@yourname.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:mirandajacobucci@gmail.com?subject=${subject}&body=${body}`;
     });
   }
 
@@ -152,10 +175,8 @@
     const grid = document.querySelector("[data-project-grid]");
     const count = document.querySelector("[data-result-count]");
     const cats = window.CATEGORIES || [];
-    const projects = window.PROJECTS || [];
+    const projects = liveProjects();
     let active = cats[0];
-
-    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
     cats.forEach((c) => {
       const b = document.createElement("button");
@@ -176,14 +197,14 @@
       const list = projects.filter((p) => active === cats[0] || p.categories.includes(active));
       count.textContent = `${list.length} ${list.length === 1 ? "project" : "projects"}`;
       grid.innerHTML = list.map((p, i) => `
-        <a class="project-card" href="${esc(p.link || "#")}" style="animation-delay:${Math.min(i, 8) * 50}ms">
+        <a class="project-card" href="${caseUrl(p)}" style="animation-delay:${Math.min(i, 8) * 50}ms">
           <div class="placeholder">
             <span>Thumbnail</span>
-            ${p.image ? `<img src="${esc(p.image)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
+            <img src="${esc(p.thumbnail || p.cover)}" alt="" loading="lazy" onerror="this.remove()">
           </div>
           <div class="info">
             <h3>${esc(p.title)}</h3>
-            <p>${esc(p.categories.join(" · "))}</p>
+            <p>${esc(p.role)}</p>
           </div>
         </a>`).join("");
     }
@@ -191,6 +212,88 @@
   }
 
   // ---------- Case study ----------
+  function initCase() {
+    const main = document.querySelector("[data-case]");
+    const list = liveProjects();
+    const slug = new URLSearchParams(location.search).get("p");
+    const idx = slug ? list.findIndex((p) => p.slug === slug) : 0;
+    const p = list[idx];
+
+    if (!p) {
+      main.innerHTML = `<section class="cs-hero wrap"><a class="cs-back" href="work.html">← All work</a><h1>Project not found</h1><p class="cs-intro">That project may have moved. Browse everything on the Work page.</p></section>`;
+      return;
+    }
+
+    const accent = FOLDER_COLORS[idx % 4];
+    const next = list[(idx + 1) % list.length];
+    document.body.style.setProperty("--accent", accent);
+    document.title = `${p.title} · Miranda Jacobucci`;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", p.summary);
+
+    const paras = (arr) => (arr || []).map((t) => `<p>${esc(t)}</p>`).join("");
+    const img = (im, cls = "cs-photo") => `<img class="${cls}" src="${esc(im.src)}" alt="${esc(im.alt)}" loading="lazy">`;
+
+    const highlights = (p.highlights || []).map((h, i) => `
+      <section class="cs-section wrap">
+        <div class="cs-section-text reveal">
+          <p class="eyebrow">${String(i + 1).padStart(2, "0")}</p>
+          <h2>${esc(h.heading)}</h2>
+          ${paras(h.body)}
+        </div>
+        ${h.video ? `<div class="cs-video reveal"><iframe src="${esc(h.video)}" title="${esc(h.heading)} video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>` : ""}
+        ${h.images && h.images.length ? `<div class="cs-images cols-${h.columns || 1}">${h.images.map((im) => `<figure class="reveal">${img(im)}</figure>`).join("")}</div>` : ""}
+      </section>`).join("");
+
+    const gallery = p.gallery && p.gallery.length
+      ? `<section class="cs-section wrap"><div class="cs-images cols-${Math.min(p.gallery.length, 2)}">${p.gallery.map((im) => `<figure class="reveal">${img(im)}</figure>`).join("")}</div></section>`
+      : "";
+
+    const responsibilities = (p.responsibilities || []).length
+      ? `<div><dt>Responsibilities</dt><dd><ul>${p.responsibilities.map((r) => `<li>${esc(r)}</li>`).join("")}</ul></dd></div>`
+      : "";
+
+    main.innerHTML = `
+      <section class="cs-hero wrap">
+        <a class="cs-back" href="work.html">← All work</a>
+        <p class="eyebrow">${esc(p.categories.join(" · "))}</p>
+        <h1>${esc(p.title)}</h1>
+        <p class="cs-intro">${esc(p.summary)}</p>
+      </section>
+
+      <div class="cs-cover wrap reveal">${img({ src: p.cover, alt: `${p.title} cover image` }, "cs-photo cs-cover-img")}</div>
+
+      <section class="cs-overview wrap">
+        <div class="cs-text reveal">
+          <h2>Overview</h2>
+          ${paras(p.intro)}
+          ${(p.myRole || []).length ? `<h3 class="cs-sub">My role</h3>${paras(p.myRole)}` : ""}
+        </div>
+        <aside class="cs-details index-card reveal" style="--r: 1.5deg" aria-label="Project details">
+          <span class="num">Project file</span>
+          <h3>Details</h3>
+          <dl>
+            <div><dt>Role</dt><dd>${esc(p.role)}</dd></div>
+            ${responsibilities}
+          </dl>
+        </aside>
+      </section>
+
+      ${highlights}
+      ${gallery}
+
+      <section class="cs-next wrap">
+        <a class="cs-next-folder" href="${caseUrl(next)}" style="--c: ${FOLDER_COLORS[(idx + 1) % 4]}">
+          <span class="cs-next-tab">Next project</span>
+          <span class="cs-next-body">
+            <span class="eyebrow">Up next</span>
+            <span class="cs-next-title">${esc(next.title)} →</span>
+          </span>
+        </a>
+      </section>`;
+
+    initReadProgress();
+  }
+
   function initReadProgress() {
     const bar = document.querySelector(".read-progress");
     if (!bar) return;

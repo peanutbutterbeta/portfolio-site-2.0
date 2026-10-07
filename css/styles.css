@@ -560,12 +560,31 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 .cs-next-body .eyebrow { display: block; color: rgba(26, 26, 26, 0.6); }
 .cs-next-title { display: block; margin-top: 8px; font-family: var(--font-display); font-weight: 500; font-size: clamp(32px, 5vw, 64px); letter-spacing: -0.02em; line-height: 1.05; }
 
+.cs-photo { display: block; width: 100%; height: auto; border-radius: 10px; background: var(--desk-2); }
+.cs-cover-img { border-radius: 14px; }
+.cs-sub { font-family: var(--font-display); font-weight: 500; font-size: 22px; margin: 32px 0 12px; }
+.cs-details ul { list-style: none; margin: 0; padding: 0; text-align: right; }
+.cs-details li + li { margin-top: 2px; }
+.cs-details dl div:has(ul) { align-items: flex-start; }
+.cs-section { margin-bottom: clamp(72px, 12vh, 140px); }
+.cs-section-text { max-width: 720px; margin-bottom: 28px; }
+.cs-section-text p { color: rgba(251, 248, 242, 0.78); margin: 0 0 12px; }
+.cs-images { display: grid; gap: clamp(12px, 1.6vw, 20px); align-items: start; }
+.cs-images figure { margin: 0; }
+.cs-images.cols-1 { grid-template-columns: 1fr; }
+.cs-images.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cs-images.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cs-images.cols-1 figure + figure { margin-top: 0; }
+.cs-video { position: relative; aspect-ratio: 16 / 9; margin-bottom: 20px; border-radius: 12px; overflow: hidden; background: var(--desk-2); }
+.cs-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
 @media (max-width: 960px) {
   .cs-overview { grid-template-columns: 1fr; }
   .cs-details { max-width: 440px; }
 }
 @media (max-width: 680px) {
-  .cs-split, .cs-grid-2, .cs-stats { grid-template-columns: 1fr; }
+  .cs-split, .cs-grid-2, .cs-stats, .cs-images.cols-2 { grid-template-columns: 1fr; }
+  .cs-images.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cs-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cs-grid-3 > :last-child { grid-column: 1 / -1; aspect-ratio: 2 / 1 !important; }
 }

@@ -3,25 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project name · Your Name</title>
-  <meta name="description" content="Case study: Project name, a branding project by Your Name.">
+  <title>Case study · Miranda Jacobucci</title>
+  <meta name="description" content="A case study by Miranda Jacobucci, digital designer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <!--
-  CASE STUDY TEMPLATE
-  1. Duplicate this file and rename it, e.g. bloom-coffee.html
-  2. Set the accent color below: var(--coral), var(--blue), var(--yellow) or var(--pink)
-  3. Put images in images/projects/your-project/ and update the src paths
-  4. Point the project's link in js/projects.js (and the homepage folder) at the new file
+  This one page shows every case study. The project comes from the link,
+  e.g. case-study.html?p=hyundai, and the content comes from js/projects.js.
 -->
-<body data-page="case" style="--accent: var(--coral)">
+<body data-page="case">
   <div class="read-progress" aria-hidden="true"></div>
 
   <header class="site-nav">
-    <a class="logo" href="index.html">Your Name</a>
+    <a class="logo" href="index.html">Miranda Jacobucci</a>
     <nav aria-label="Main">
       <a href="work.html" aria-current="page">Work</a>
       <a href="about.html">About</a>
@@ -29,149 +26,14 @@
     </nav>
   </header>
 
-  <main>
-    <!-- Title -->
-    <section class="cs-hero wrap">
-      <a class="cs-back" href="work.html">← All work</a>
-      <p class="eyebrow">Branding &amp; Design Systems · FinTech</p>
-      <h1>Project name</h1>
-      <p class="cs-intro">One or two sentences that sum up the project: who it was for, what you made, and why it mattered.</p>
-    </section>
-
-    <!-- Cover -->
-    <div class="cs-cover wrap reveal">
-      <div class="placeholder cs-img" style="aspect-ratio: 16 / 9">
-        <span>Cover image · 16:9<br>images/projects/project-name/cover.jpg</span>
-        <img src="images/projects/project-name/cover.jpg" alt="Describe the cover image" onerror="this.remove()">
-      </div>
-    </div>
-
-    <!-- Overview + details card -->
-    <section class="cs-overview wrap">
-      <div class="cs-text reveal">
-        <h2>Overview</h2>
-        <p>Set the scene. What did the client do, and what did they need when they came to you? Keep it to a short paragraph or two.</p>
-        <p>Mention anything that made the project unusual: a tight timeline, a big launch, a rebrand of something well loved.</p>
-      </div>
-      <aside class="cs-details index-card reveal" style="--r: 1.5deg" aria-label="Project details">
-        <span class="num">Project file</span>
-        <h3>Details</h3>
-        <dl>
-          <div><dt>Client</dt><dd>Client name</dd></div>
-          <div><dt>Year</dt><dd>2026</dd></div>
-          <div><dt>Role</dt><dd>Lead designer</dd></div>
-          <div><dt>Services</dt><dd>Identity, design system, packaging</dd></div>
-          <div><dt>Team</dt><dd>Name (strategy), Name (dev)</dd></div>
-        </dl>
-      </aside>
-    </section>
-
-    <!-- Challenge / Approach -->
-    <section class="cs-split wrap">
-      <div class="reveal">
-        <p class="eyebrow">01</p>
-        <h2>The challenge</h2>
-        <p>What problem were you solving? Name the constraints, like audience, budget, existing assets, or technical limits.</p>
-      </div>
-      <div class="reveal" style="transition-delay:.1s">
-        <p class="eyebrow">02</p>
-        <h2>The approach</h2>
-        <p>How did you tackle it? Walk through the key decisions and why you made them.</p>
-      </div>
-    </section>
-
-    <!-- Full-width image -->
-    <figure class="cs-figure wrap reveal">
-      <div class="placeholder cs-img" style="aspect-ratio: 21 / 9">
-        <span>Wide image · 21:9<br>images/projects/project-name/wide.jpg</span>
-        <img src="images/projects/project-name/wide.jpg" alt="Describe this image" onerror="this.remove()">
-      </div>
-      <figcaption>Caption: what we're looking at and why it matters.</figcaption>
-    </figure>
-
-    <!-- Process notes -->
-    <section class="cs-process wrap">
-      <div class="reveal">
-        <p class="eyebrow">03</p>
-        <h2>Process</h2>
-      </div>
-      <div class="process cs-notes">
-        <div class="sticky-note reveal">Research<small>What you learned before designing anything.</small></div>
-        <div class="sticky-note reveal" style="transition-delay:.12s">Explore<small>The directions you sketched and the one you chose.</small></div>
-        <div class="sticky-note reveal" style="transition-delay:.24s">Refine<small>How feedback shaped the final work.</small></div>
-      </div>
-    </section>
-
-    <!-- Two-up images -->
-    <div class="cs-grid-2 wrap">
-      <figure class="cs-figure reveal">
-        <div class="placeholder cs-img" style="aspect-ratio: 4 / 5">
-          <span>Portrait · 4:5<br>detail-1.jpg</span>
-          <img src="images/projects/project-name/detail-1.jpg" alt="Describe this image" onerror="this.remove()">
-        </div>
-        <figcaption>Caption for the first image.</figcaption>
-      </figure>
-      <figure class="cs-figure reveal" style="transition-delay:.1s">
-        <div class="placeholder cs-img" style="aspect-ratio: 4 / 5">
-          <span>Portrait · 4:5<br>detail-2.jpg</span>
-          <img src="images/projects/project-name/detail-2.jpg" alt="Describe this image" onerror="this.remove()">
-        </div>
-        <figcaption>Caption for the second image.</figcaption>
-      </figure>
-    </div>
-
-    <!-- Solution text -->
-    <section class="cs-text-block wrap reveal">
-      <p class="eyebrow">04</p>
-      <h2>The solution</h2>
-      <p>Describe the final work. What's in the system, how the pieces fit together, and the details you're proudest of.</p>
-    </section>
-
-    <!-- Three-up images -->
-    <div class="cs-grid-3 wrap">
-      <div class="placeholder cs-img reveal" style="aspect-ratio: 1 / 1"><span>Square<br>grid-1.jpg</span><img src="images/projects/project-name/grid-1.jpg" alt="Describe this image" onerror="this.remove()"></div>
-      <div class="placeholder cs-img reveal" style="aspect-ratio: 1 / 1; transition-delay:.08s"><span>Square<br>grid-2.jpg</span><img src="images/projects/project-name/grid-2.jpg" alt="Describe this image" onerror="this.remove()"></div>
-      <div class="placeholder cs-img reveal" style="aspect-ratio: 1 / 1; transition-delay:.16s"><span>Square<br>grid-3.jpg</span><img src="images/projects/project-name/grid-3.jpg" alt="Describe this image" onerror="this.remove()"></div>
-    </div>
-
-    <!-- Results -->
-    <section class="cs-results wrap">
-      <div class="reveal">
-        <p class="eyebrow">05</p>
-        <h2>Results</h2>
-      </div>
-      <div class="cs-stats">
-        <div class="index-card cs-stat reveal" style="--r:-1.5deg"><span class="big">+40%</span><p>A result, like growth in sign-ups</p></div>
-        <div class="index-card cs-stat reveal" style="--r:1deg; transition-delay:.1s"><span class="big">240</span><p>Something you made, like icons drawn</p></div>
-        <div class="index-card cs-stat reveal" style="--r:-0.5deg; transition-delay:.2s"><span class="big">3 wks</span><p>A timeline or other fact</p></div>
-      </div>
-    </section>
-
-    <!-- Testimonial -->
-    <section class="cs-quote wrap reveal">
-      <blockquote class="sticky-note">
-        <p>"A short quote from the client about what it was like to work with you, or what changed after launch."</p>
-        <footer>Client name, Title at Company</footer>
-      </blockquote>
-    </section>
-
-    <!-- Next project -->
-    <section class="cs-next wrap">
-      <a class="cs-next-folder" href="case-study.html" style="--c: var(--blue)">
-        <span class="cs-next-tab">Next project</span>
-        <span class="cs-next-body">
-          <span class="eyebrow">Up next</span>
-          <span class="cs-next-title">Next project name →</span>
-        </span>
-      </a>
-    </section>
-  </main>
+  <main data-case></main>
 
   <footer class="site-footer">
-    <span>© 2026 Your Name</span>
+    <span>© 2026 Jacobucci LLC</span>
     <span>Made with sticky notes and index cards</span>
   </footer>
 
+  <script src="js/projects.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
