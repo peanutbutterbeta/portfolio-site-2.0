@@ -293,6 +293,7 @@
         </aside>
       </section>
 
+      <div class="on-white">
       ${highlights}
       ${gallery}
 
@@ -305,6 +306,7 @@
           </span>
         </a>
       </section>
+      </div>
       </div>`;
 
     initNavTheme();

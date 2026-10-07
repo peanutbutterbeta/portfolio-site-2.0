@@ -627,6 +627,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 .case-body { padding-top: clamp(72px, 12vh, 140px); }
 .on-cream .cs-text p, .on-cream .cs-section-text p { color: rgba(26, 26, 26, 0.78); }
 .on-cream .cs-photo, .on-cream .cs-video { background: #ECE8DF; }
+.on-white { background: #FFFFFF; padding-top: clamp(72px, 12vh, 140px); }
+.site-footer.on-white { padding-top: 32px; }
+.case-body .cs-overview { margin-bottom: clamp(72px, 12vh, 140px); }
 
 body.nav-light .site-nav { background: rgba(251, 248, 242, 0.9); }
 body.nav-light .logo { color: var(--ink); }
