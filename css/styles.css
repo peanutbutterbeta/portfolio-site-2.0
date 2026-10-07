@@ -614,7 +614,13 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.
 .on-cream .project-card:hover { border-color: var(--ink); }
 .on-cream .project-card .placeholder { background: #ECE8DF; }
 
-.about-dark { padding-bottom: 64px; }
+[data-page="about"] main > .on-cream { padding-bottom: 1px; }
+.on-cream .board { background-image: radial-gradient(rgba(26, 26, 26, 0.12) 1.2px, transparent 1.2px); }
+.on-cream .board-photo .placeholder { border-color: #FFFFFF; box-shadow: 0 18px 40px rgba(26, 26, 26, 0.18); }
+.on-cream .drag-item { box-shadow: 0 10px 24px rgba(26, 26, 26, 0.14); }
+.on-cream .drag-item.dragging { box-shadow: 0 22px 44px rgba(26, 26, 26, 0.22); }
+.on-cream .drag-item .placeholder { background: #ECE8DF; border-color: rgba(26, 26, 26, 0.22); }
+.on-cream .board-photo .placeholder { background: #ECE8DF; }
 
 .cs-dark { padding-bottom: clamp(56px, 9vh, 104px); }
 .cs-dark .cs-cover { margin-bottom: 0; }
